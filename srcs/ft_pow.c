@@ -15,7 +15,6 @@
 double		ft_pow(double n, double pow)
 {
 	double	ret;
-	int		floor;
 	double	frac;
 	int		num;
 	int		den;
@@ -24,10 +23,10 @@ double		ft_pow(double n, double pow)
 		return (0);
 	if (pow < 0)
 		return (1 / ft_pow(n, -pow));
-	floor = ft_floor(pow);
-	frac = pow - floor;
+	frac = pow - ft_floor(pow);
 	if (frac)
 	{
+		frac = frac > 0.5 ? 1 - frac : frac;
 		num = pow / frac;
 		den = 1 / frac;
 		return (ft_root(den, ft_pow(n, num)));

@@ -12,9 +12,8 @@ void	prompt(void)
 	time_t 	end;
 
 	time(&sstart);
-	while(TRUE)
+	while(printf("> "))
 	{
-		printf("> ");
 		scanf("%s", str);
 		if (!ft_strcmp(str, "exit"))
 			break;
@@ -23,7 +22,8 @@ void	prompt(void)
 			time(&start);
 			ans = ft_calc(str);
 			time(&end);
-			printf(" = %g\ntime: %g\n", ans, difftime(end, start));
+			printf(" = %g\n", ans);
+			printf("time: %g\n", difftime(end, start));
 		}
 	}
 	time(&end);
@@ -33,7 +33,7 @@ void	prompt(void)
 int		main(int argc, char **argv)
 {
 	if (argc == 2)
-		printf("%g\n", ft_calc(argv[1]));
+		printf("%G\n", ft_calc(argv[1]));
 	else if (argc == 1)
 		prompt();
 	else

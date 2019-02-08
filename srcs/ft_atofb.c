@@ -66,7 +66,7 @@ double		ft_atofb(const char *str, unsigned int b)
 			return (0);
 		ret *= b;
 		ret += *a - '0';
-		if (a[1] == '.' && !c)
+		if (!c && a[1] == '.')
 		{
 			c = 1;
 			a++;

@@ -15,24 +15,29 @@
 double		ft_root(unsigned int index, double n)
 {
 	int		root;
-	int		floor;
 	double	frac;
-	double	num;
-	double	den;
+	int		num;
+	int		den;
 
 	if (n < 0)
 		return ((int)index % 2 ? -ft_root(index, -n) : 0);
-	floor = ft_floor(n);
-	frac = n - floor;
+	frac = n - ft_floor(n);
 	if (frac)
 	{
-		num = ft_root(index, ft_round(n / frac));
-		den = ft_root(index, ft_round(1 / frac));
-		return (num / den);
+		frac = frac > 0.5 ? 1 - frac : frac;
+		num = ft_round(n / frac);
+		den = ft_round(1 / frac);
+		return (ft_root(index, num) / ft_root(index, den));
 	}
+	frac = 0;
 	root = 0;
-	while (root < n)
-		if (ft_pow(root, index) != n)
-			root++;
+	while (TRUE)
+	{
+		frac = root && n <= index ? (root + 1) / root : root;
+		frac = root ? ft_pow(frac, index) : 0;
+		if (frac == n)
+			break ;
+		root++;
+	}
 	return (root);
 }
