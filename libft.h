@@ -15,8 +15,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stdio.h>
 # define TRUE 1
 # define FALSE 0
+# define MIN_INT -2147483648
+# define MAX_INT 2147483647
+# define MAX_UINT 4294967295U
+# define MAX_SIZE_T 18446744073709551615U
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 128
 # endif
@@ -65,6 +70,7 @@ int						ft_isalnum(int c);
 int						ft_isalpha(int c);
 int						ft_isascii(int c);
 int						ft_isdigit(int c);
+int						ft_isfrac(double n);
 int						ft_islower(int c);
 int						ft_isprint(int c);
 int						ft_isspace(char c);
@@ -81,6 +87,8 @@ int						ft_tolower(int c);
 int						ft_toupper(int c);
 size_t					ft_lstsize(t_list *lst);
 size_t					ft_lstsum(t_list *lst);
+size_t					ft_numlen(double n);
+size_t					ft_numlenb(double n, unsigned int base);
 size_t					ft_strlcat(char *dst, const char *src, size_t size);
 size_t					ft_strlen(const char *str);
 size_t					ft_wordcount(const char *s, char c);

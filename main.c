@@ -33,7 +33,7 @@ void	prompt(void)
 int		main(int argc, char **argv)
 {
 	if (argc == 2)
-		printf("%G\n", ft_calc(argv[1]));
+		printf("%g\n", ft_calc(argv[1]));
 	else if (argc == 1)
 		prompt();
 	else

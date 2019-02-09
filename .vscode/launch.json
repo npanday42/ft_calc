@@ -44,7 +44,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/calc.exe",
-			"args": ["2^0.333"],
+			"args": ["2^(1/2)"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
