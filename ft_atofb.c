@@ -12,7 +12,7 @@
 
 #include "ft_calc.h"
 
-static int	sign(const char *str, unsigned int b)
+static int		sign(const char *str, unsigned int b)
 {
 	if (*str == '-')
 		return (-1 * ft_atofb(str + 1, b));
@@ -22,7 +22,7 @@ static int	sign(const char *str, unsigned int b)
 		return (0);
 }
 
-static char	*skip(const char *str, unsigned int b)
+static char		*skip(const char *str, unsigned int b)
 {
 	char	*start;
 
@@ -37,7 +37,7 @@ static char	*skip(const char *str, unsigned int b)
 	return (ft_isdigit(start[0]) ? start : NULL);
 }
 
-double		f(double ret, char *a, char c)
+static double	mantissa(double ret, char *a, char c)
 {
 	while (*a != c)
 	{
@@ -47,7 +47,7 @@ double		f(double ret, char *a, char c)
 	return (ret);
 }
 
-double		ft_atofb(const char *str, unsigned int b)
+double			ft_atofb(const char *str, unsigned int b)
 {
 	int		ret;
 	char	*a;
@@ -73,5 +73,5 @@ double		ft_atofb(const char *str, unsigned int b)
 		}
 		a++;
 	}
-	return (c ? f(ret, a - 1, c) : ret);
+	return (c ? mantissa(ret, a - 1, c) : ret);
 }
