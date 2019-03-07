@@ -27,7 +27,7 @@ void	prompt(void)
 		}
 	}
 	time(&end);
-	printf("Exiting...\ntime: %f\n", difftime(end, sstart));
+	printf("Exiting...\ntime: %g\n", difftime(end, sstart));
 }
 
 int		main(int argc, char **argv)
