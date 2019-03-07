@@ -37,9 +37,9 @@ static char	*skip(const char *str, unsigned int b)
 	return (ft_isdigit(start[0]) ? start : NULL);
 }
 
-double		f(double ret, char *a)
+double		f(double ret, char *a, char c)
 {
-	while (*a != '.')
+	while (*a != c)
 	{
 		ret /= 10;
 		a--;
@@ -51,27 +51,27 @@ double		ft_atofb(const char *str, unsigned int b)
 {
 	int		ret;
 	char	*a;
-	int		c;
+	char	c;
+	char	*digit;
 
 	a = skip(str, b);
 	if (!a)
 		return (0);
-	if (!ft_isdigit(*a))
+	digit = ft_strndup(DIGITS, b);
+	if (!ft_strchr(digit, *a))
 		return (sign(a, b));
 	c = 0;
 	ret = 0;
-	while (*a && ft_isdigit(*a))
+	while (*a && ft_strchr(digit, *a))
 	{
-		if (b != 1 && *a - '0' >= (int)b)
-			return (0);
 		ret *= b;
-		ret += *a - '0';
-		if (a[1] == '.' && !c)
+		ret += ft_strchr(DIGITS, *a) - DIGITS;
+		if (!c && ft_strchr(",.", a[1]))
 		{
-			c = 1;
+			c = a[1];
 			a++;
 		}
 		a++;
 	}
-	return (c ? f(ret, a - 1) : ret);
+	return (c ? f(ret, a - 1, c) : ret);
 }
