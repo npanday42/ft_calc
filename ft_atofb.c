@@ -65,7 +65,7 @@ double		ft_atofb(const char *str, unsigned int b)
 	while (*a && ft_strchr(digit, *a))
 	{
 		ret *= b;
-		ret += ft_strchr(DIGITS, *a) - DIGITS;
+		ret += ft_strchr(digit, *a) - digit;
 		if (!c && ft_strchr(",.", a[1]))
 		{
 			c = a[1];
