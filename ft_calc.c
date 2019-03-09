@@ -30,10 +30,11 @@ static int		skip(const char *str)
 	return (i - 1);
 }
 
-static double		factor(char *str)
+static double	factor(const char *str)
 {
 	char	c;
 	int		end;
+	char	*expr;
 
 	c = *str;
 	if (c == '-')
@@ -41,13 +42,13 @@ static double		factor(char *str)
 	if (c == '(')
 	{
 		end = skip(str);
-		str[end] = 0;
-		return (expr(str + 1));
+		expr = ft_strndup(str + 1, end - 1);
+		return (ft_calc(expr));
 	}
 	return (ft_atof(str));
 }
 
-static double		term(char *str, int end)
+static double	term(const char *str, int end)
 {
 	int		i;
 	char	c;
@@ -73,13 +74,11 @@ static double		term(char *str, int end)
 	return (factor(str));
 }
 
-double		ft_calc(const char *str)
+double			ft_calc(const char *expr)
 {
-	char 	*expr;
 	int		i;
 	char	c;
 
-	expr = ft_strdup(str);
 	if (!expr)
 		return (0);
 	i = 0;
