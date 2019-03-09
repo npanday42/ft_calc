@@ -14,5 +14,5 @@
 
 double		ft_atof(const char *str)
 {
-	return (ft_atofb(str, 10));
+	return (ft_atof_base(str, 10));
 }

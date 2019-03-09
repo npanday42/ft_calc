@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_calc.h                                          :+:    :+:            */
+/*   ft_isdigit_base.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: npanday <npanday@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/07 16:28:33 by npanday        #+#    #+#                */
-/*   Updated: 2019/03/07 16:28:33 by npanday       ########   odam.nl         */
+/*   Created: 2019/03/09 16:19:30 by npanday        #+#    #+#                */
+/*   Updated: 2019/03/09 16:19:30 by npanday       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CALC_H
-# define FT_CALC_H
-# include "libft/libft.h"
+#include "ft_calc.h"
 
-double		ft_atof(const char *str);
-double		ft_atof_base(const char *str, unsigned int b);
-double		ft_calc(const char *str);
-int			ft_isdigit_base(char c, unsigned int base);
-#endif
+int			ft_isdigit_base(char c, unsigned int base)
+{
+	if (base == 1)
+		return (c == '1');
+	else if (base <= 16)
+		return ((ft_strchr(ft_strndup(DIGITS, base), c)));
+	else
+		return (0);
+}
