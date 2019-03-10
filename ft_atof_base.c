@@ -43,6 +43,7 @@ static int		sign(const char *str, unsigned int b)
 
 static double	mantissa(double ret, char *a, char c)
 {
+	a--;
 	while (*a != c)
 	{
 		ret /= 10;
@@ -70,11 +71,11 @@ double			ft_atof_base(const char *str, unsigned int b)
 	{
 		ret *= b;
 		ret += ft_strchr(digits, *a) - digits;
-		a += !(c);
-		if (!c)
-			if (ft_strchr(",.", a[1]))
-				c = a[1];
-		a += (c);
+		a += c ? 0 : 1;
+		if (c == 0)
+			if (ft_strchr(",.", *a))
+				c = *a;
+		a += c ? 1 : 0;
 	}
-	return (c ? mantissa(ret, a - 1, c) : ret);
+	return (c ? mantissa(ret, a, c) : ret);
 }
