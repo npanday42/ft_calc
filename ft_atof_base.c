@@ -51,7 +51,7 @@ static double	mantissa(double ret, char *a, char c)
 	return (ret);
 }
 
-double			ft_atof_baseb(const char *str, unsigned int b)
+double			ft_atof_base(const char *str, unsigned int b)
 {
 	int		ret;
 	char	*a;

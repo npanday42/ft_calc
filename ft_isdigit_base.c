@@ -17,7 +17,7 @@ int			ft_isdigit_base(char c, unsigned int base)
 	if (base == 1)
 		return (c == '1');
 	else if (base <= 16)
-		return ((ft_strchr(ft_strndup(DIGITS, base), c)));
+		return (ft_strchr(ft_strndup(DIGITS, base), c) ? 1 : 0);
 	else
 		return (0);
 }

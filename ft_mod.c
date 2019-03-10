@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_calc.h                                          :+:    :+:            */
+/*   ft_mod.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: npanday <npanday@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/07 16:28:33 by npanday        #+#    #+#                */
-/*   Updated: 2019/03/07 16:28:33 by npanday       ########   odam.nl         */
+/*   Created: 2019/03/10 20:02:50 by npanday        #+#    #+#                */
+/*   Updated: 2019/03/10 20:02:50 by npanday       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CALC_H
-# define FT_CALC_H
-# include "libft/libft.h"
+#include "ft_calc.h"
 
-double		ft_atof(const char *str);
-double		ft_atof_base(const char *str, unsigned int b);
-double		ft_calc(const char *str);
-int			ft_isdigit_base(char c, unsigned int base);
-int			ft_mod(int num, int den);
-#endif
+int			ft_mod(int num, int den)
+{
+	if (num < 0)
+		return (-ft_mod(-num, den));
+	if (den < 0)
+		return (-ft_mod(num, -den));
+	return (num - num / den * den);
+}

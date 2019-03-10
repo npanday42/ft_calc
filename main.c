@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "ft_calc.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

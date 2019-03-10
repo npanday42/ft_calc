@@ -62,7 +62,7 @@ static double	term(const char *str, int end)
 		if (c == '/')
 			return (factor(str) / term(str + i + 1, end - i - 1));
 		if (c == '%')
-			return ((int)factor(str) % (int)term(str + i + 1, end - i - 1)); 
+			return (ft_mod(factor(str), term(str + i + 1, end - i - 1))); 
 		if (c == '!')
 			return (ft_factorial(factor(str)));
 		if (c == '^')
