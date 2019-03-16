@@ -54,10 +54,10 @@ static double	mantissa(double ret, char *a, char c)
 
 double			ft_atof_base(const char *str, unsigned int b)
 {
-	int		ret;
-	char	*a;
-	char	c;
 	char	*digits;
+	char	*a;
+	int		ret;
+	char	c;
 
 	a = skip(str, b);
 	if (!a)
