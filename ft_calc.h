@@ -17,5 +17,4 @@
 double		ft_atof(const char *str);
 double		ft_atof_base(const char *str, unsigned int b);
 double		ft_calc(const char *str);
-int			ft_mod(int num, int den);
 #endif
