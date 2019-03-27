@@ -16,7 +16,7 @@ static char		*skip(const char *str, unsigned int b)
 {
 	char	*start;
 
-	if (!str || !b || b > 10)
+	if (!str || !b || b > 16)
 		return (NULL);
 	start = (char *)str;
 	while (ft_isspace(*start))
