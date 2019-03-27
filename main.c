@@ -8,14 +8,12 @@ void	prompt(void)
 	char 	str[BUFF_SIZE];
 	double	ans;
 	time_t 	start;
-	time_t	sstart;
 	time_t 	end;
 
-	time(&sstart);
 	while(printf("> "))
 	{
 		scanf("%s", str);
-		if (!ft_strcmp(str, "exit"))
+		if (ft_strcmp(str, "exit") == 0)
 			break;
 		else
 		{
@@ -26,14 +24,21 @@ void	prompt(void)
 			printf("time: %g\n", difftime(end, start));
 		}
 	}
-	time(&end);
-	printf("Exiting...\ntime: %g\n", difftime(end, sstart));
+	printf("Exiting...\n");
 }
 
 int		main(int argc, char **argv)
 {
+	time_t	start;
+	time_t	end;
+
 	if (argc == 2)
+	{
+		time(&start);
 		printf("%g\n", ft_calc(argv[1]));
+		time(&end);
+		printf("time: %g\n", difftime(end, start));
+	}
 	else if (argc == 1)
 		prompt();
 	else
