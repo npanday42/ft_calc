@@ -41,7 +41,7 @@ static int		sign(const char *str, unsigned int b)
 		return (0);
 }
 
-static double	mantissa(double ret, char *a, char c)
+static double	itof(double ret, char *a, char c)
 {
 	a--;
 	while (*a != c)
@@ -77,5 +77,5 @@ double			ft_atof_base(const char *str, unsigned int b)
 				c = *a;
 		a += c ? 1 : 0;
 	}
-	return (c ? mantissa(ret, a, c) : ret);
+	return (c ? itof(ret, a, c) : ret);
 }
