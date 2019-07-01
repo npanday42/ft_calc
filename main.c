@@ -6,14 +6,11 @@
 /*   By: npanday <npanday@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/02 13:51:43 by npanday        #+#    #+#                */
-/*   Updated: 2019/07/01 13:20:01 by npanday       ########   odam.nl         */
+/*   Updated: 2019/07/01 13:36:43 by npanday       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "get_next_line.h"
-#include <stdio.h>
-#include <time.h>
+#include "ft_calc.h"
 
 void	prompt(void)
 {

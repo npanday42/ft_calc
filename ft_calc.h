@@ -12,7 +12,9 @@
 
 #ifndef FT_CALC_H
 # define FT_CALC_H
-# include "libft/includes/libft.h"
+# include "libft.h"
+# include <stdio.h>
+# include <time.h>
 
 double		ft_calc(const char *str);
 #endif
