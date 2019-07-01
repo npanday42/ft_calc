@@ -12,9 +12,7 @@
 
 #ifndef FT_CALC_H
 # define FT_CALC_H
-# include "libft/libft.h"
+# include "libft/includes/libft.h"
 
-double		ft_atof(const char *str);
-double		ft_atof_base(const char *str, unsigned int b);
 double		ft_calc(const char *str);
 #endif

@@ -1,24 +1,36 @@
-#include "ft_calc.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   main.c                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: npanday <npanday@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/05/02 13:51:43 by npanday        #+#    #+#                */
+/*   Updated: 2019/07/01 13:20:01 by npanday       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include "get_next_line.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 
 void	prompt(void)
 {
-	char 	str[BUFF_SIZE];
+	char	*line;
 	double	ans;
-	time_t 	start;
-	time_t 	end;
+	time_t	start;
+	time_t	end;
 
-	while(printf("> "))
+	while (printf("> "))
 	{
-		scanf("%s", str);
-		if (ft_strcmp(str, "exit") == 0)
-			break;
+		get_next_line(0, &line);
+		if (ft_strcmp(line, "exit") == 0)
+			break ;
 		else
 		{
 			time(&start);
-			ans = ft_calc(str);
+			ans = ft_calc(line);
 			time(&end);
 			printf(" = %g\n", ans);
 			printf("time: %g\n", difftime(end, start));
@@ -29,16 +41,8 @@ void	prompt(void)
 
 int		main(int argc, char **argv)
 {
-	time_t	start;
-	time_t	end;
-
 	if (argc == 2)
-	{
-		time(&start);
 		printf("%g\n", ft_calc(argv[1]));
-		time(&end);
-		printf("time: %g\n", difftime(end, start));
-	}
 	else if (argc == 1)
 		prompt();
 	else
